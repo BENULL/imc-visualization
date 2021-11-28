@@ -1,5 +1,5 @@
-import { defineComponent, watch, shallowReactive } from 'vue'
-
+import { defineComponent, watch, ref } from 'vue'
+import * as echarts from 'echarts'
 // 声明类型
 const PropsType = {
   cdata: {
@@ -12,104 +12,110 @@ const PropsType = {
 export default defineComponent({
   props: PropsType,
   setup(props) {
-    // 定义固定配置项
-    const lineStyle = {
-      normal: {
-        width: 1,
-        opacity: 0.5
-      }
-    };
+    // 定义 ref
+    const chartRef = ref()
     // 配置项
-    let options = shallowReactive({radar:null,series:null})
+    let options = {}
 
+    // 监听
     watch(
       () => props.cdata,
       (val: any) => {
         options = {
-          radar: {
-            indicator: val.indicatorData,
-            shape: "circle",
-            splitNumber: 5,
-            radius: ["0%", "65%"],
-            name: {
-              textStyle: {
-                color: "rgb(238, 197, 102)"
-              }
-            },
-            splitLine: {
-              lineStyle: {
-                color: [
-                  "rgba(238, 197, 102, 0.1)",
-                  "rgba(238, 197, 102, 0.2)",
-                  "rgba(238, 197, 102, 0.4)",
-                  "rgba(238, 197, 102, 0.6)",
-                  "rgba(238, 197, 102, 0.8)",
-                  "rgba(238, 197, 102, 1)"
-                ].reverse()
-              }
-            },
-            splitArea: {
-              show: false
-            },
-            axisLine: {
-              lineStyle: {
-                color: "rgba(238, 197, 102, 0.5)"
+          tooltip: {
+            show: true,
+            trigger: "axis",
+            backgroundColor: "rgba(255,255,255,0.1)",
+            axisPointer: {
+              type: "shadow",
+              label: {
+                show: true,
+                backgroundColor: "#7B7DDC"
               }
             }
           },
+          legend: {
+            show: false,
+          },
+          grid: {
+            x: "8%",
+            width: "88%",
+            top: "5%",
+            bottom: '7%'
+          },
+          xAxis: {
+            data: val.category,
+            axisLine: {
+              lineStyle: {
+                color: "#B4B4B4"
+              }
+            },
+            axisTick: {
+              show: false
+            }
+          },
+          yAxis: [
+            {
+              splitLine: { show: false },
+              axisLine: {
+                lineStyle: {
+                  color: "#B4B4B4"
+                }
+              },
+
+              axisLabel: {
+                formatter: "{value} "
+              }
+            },
+            {
+              splitLine: { show: false },
+              axisLine: {
+                lineStyle: {
+                  color: "#B4B4B4"
+                }
+              },
+              axisLabel: {
+                formatter: "{value} "
+              }
+            }
+          ],
           series: [
             {
-              name: "北京",
-              type: "radar",
-              lineStyle: lineStyle,
-              data: val.dataBJ,
-              symbol: "none",
+              name: "准确率",
+              type: "line",
+              smooth: true,
+              showAllSymbol: true,
+              symbol: "emptyCircle",
+              symbolSize: 8,
+              yAxisIndex: 1,
               itemStyle: {
                 normal: {
-                  color: "#F9713C"
+                  color: "#F02FC2"
                 }
               },
-              areaStyle: {
-                normal: {
-                  opacity: 0.1
-                }
-              }
+              data: val.rateData
             },
             {
-              name: "上海",
-              type: "radar",
-              lineStyle: lineStyle,
-              data: val.dataSH,
-              symbol: "none",
+              name: "参数量",
+              type: "bar",
+              barWidth: 10,
               itemStyle: {
                 normal: {
-                  color: "#B3E4A1"
+                  barBorderRadius: 5,
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    { offset: 0, color: "#956FD4" },
+                    { offset: 1, color: "#3EACE5" }
+                  ])
                 }
               },
-              areaStyle: {
-                normal: {
-                  opacity: 0.05
-                }
-              }
+              data: val.barData
             },
-            {
-              name: "广州",
-              type: "radar",
-              lineStyle: lineStyle,
-              data: val.dataGZ,
-              symbol: "none",
-              itemStyle: {
-                normal: {
-                  color: "rgb(238, 197, 102)"
-                }
-              },
-              areaStyle: {
-                normal: {
-                  opacity: 0.05
-                }
-              }
-            } //end
           ]
+        }
+        // 手动触发更新
+        if (chartRef.value) {
+          // 通过初始化参数打入数据
+          chartRef.value.initChart(options)
         }
       },
       {
@@ -119,11 +125,11 @@ export default defineComponent({
     )
 
     return () => {
-      const height = "200px"
-      const width = "260px"
+      const height = "350px"
+      const width = "350px"
 
       return <div>
-        <echart options={options} height={height} width={width} />
+        <echart ref={chartRef} height={height} width={width} />
       </div>
     }
   }

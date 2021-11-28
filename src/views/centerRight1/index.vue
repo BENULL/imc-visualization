@@ -3,12 +3,13 @@
     <div class="bg-color-black">
       <div class="d-flex pt-2 pl-2">
         <span>
-          <i class="iconfont icon-align-left" />
+          <i class="iconfont icon-chart-line" />
         </span>
-        <span class="fs-xl text mx-2">产品销售渠道分析</span>
+        <div class="d-flex">
+          <span class="fs-xl text mx-2 mt-1">模型性能</span>
+        </div>
       </div>
-      <div class="d-flex ai-center flex-column body-box">
-        <dv-capsule-chart class="dv-cap-chart" :config="config" />
+      <div>
         <chart />
       </div>
     </div>
@@ -16,67 +17,36 @@
 </template>
 
 <script>
-import { defineComponent, reactive } from 'vue'
-import Chart from './chart/index.tsx'
-
+import { defineComponent } from 'vue'
+import Chart from "./chart/index";
 export default defineComponent({
   components: {
     Chart
-  },
-  setup() {
-    const config = reactive({
-      data: [
-        {
-          name: '南阳',
-          value: 167
-        },
-        {
-          name: '周口',
-          value: 67
-        },
-        {
-          name: '漯河',
-          value: 123
-        },
-        {
-          name: '郑州',
-          value: 55
-        },
-        {
-          name: '西峡',
-          value: 98
-        }
-      ]
-    })
-
-    return { config }
   }
 })
 </script>
 
 <style lang="scss" scoped>
-$box-height: 400px;
-$box-width: 340px;
+$box-height: 410px;
+$box-width: 400px;
 .centerRight1 {
-  padding: 5px;
+  padding: 20px 16px;
   height: $box-height;
   width: $box-width;
   border-radius: 5px;
   .bg-color-black {
-    padding: 5px;
-    height: $box-height;
-    width: $box-width;
+    height: $box-height - 35px;
     border-radius: 10px;
   }
   .text {
     color: #c3cbde;
   }
-  .body-box {
-    border-radius: 10px;
-    overflow: hidden;
-    .dv-cap-chart {
-      width: 100%;
-      height: 160px;
+  .chart-box {
+    margin-top: 16px;
+    width: 170px;
+    height: 170px;
+    .active-ring-name {
+      padding-top: 10px;
     }
   }
 }

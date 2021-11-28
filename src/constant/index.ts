@@ -12,30 +12,32 @@ type ModuleInfo = {
 }[]
 
 export const moduleInfo: ModuleInfo = [
-  // 中间的几个模块
+  // 左边两个模块
   {
-    name: '任务通过率',
+    name: '缺陷分类统计',
     icon: 'icon-chart-bar',
   },
   {
-    name: '地图数据',
-    icon: 'icon-tongji4',
-  },
-  {
-    name: '产品销售渠道分析',
+    name: '模型参数量',
     icon: 'icon-align-left',
   },
+  // 右边两个模块
   {
-    name: '任务完成排行榜',
-    icon: 'icon-zhibiao2',
-  },
-  // 底部两个模块
-  {
-    name: '数据统计图',
+    name: '模型性能',
     icon: 'icon-vector',
   },
   {
-    name: '工单修复以及满意度统计图',
-    icon: 'icon-fenxi7',
+    name: '模型数据',
+    icon: 'icon-zhibiao2',
   },
+
+  // 底部两个模块
+  // {
+  //   name: '数据统计图',
+  //   icon: 'icon-vector',
+  // },
+  // {
+  //   name: '工单修复以及满意度统计图',
+  //   icon: 'icon-fenxi7',
+  // },
 ]

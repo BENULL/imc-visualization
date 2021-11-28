@@ -80,8 +80,8 @@ export default defineComponent({
     )
 
     return () => {
-      const height = "100px"
-      const width = "120px"
+      const height = "90px"
+      const width = "200px"
 
       return <div>
         <echart options={options} height={height} width={width} />

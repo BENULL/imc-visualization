@@ -1,12 +1,12 @@
 <template>
-  <div class="bottomRight">
+  <div class="bottom">
     <div class="bg-color-black">
       <div class="d-flex pt-2 pl-2">
         <span>
-          <i class="iconfont icon-chart-area" />
+          <i class="iconfont icon-chart-line" />
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2 mt-1">数据统计图</span>
+          <span class="fs-xl text mx-2 mt-1">检测结果</span>
         </div>
       </div>
       <div>
@@ -26,16 +26,16 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" class>
+<style lang="scss" scoped>
 $box-height: 520px;
 $box-width: 100%;
-.bottomRight {
-  padding: 14px 16px;
+.bottom{
+  padding: 20px 16px;
   height: $box-height;
   width: $box-width;
   border-radius: 5px;
   .bg-color-black {
-    height: $box-height - 30px;
+    height: $box-height - 35px;
     border-radius: 10px;
   }
   .text {

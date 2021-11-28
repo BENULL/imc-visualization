@@ -59,17 +59,18 @@
               </dv-border-box-12>
             </div>
             <div>
-              <dv-border-box-12>
+              <dv-border-box-1>
                 <center-left2 />
-              </dv-border-box-12>
+              </dv-border-box-1>
             </div>
             <!-- 中间 -->
             <div>
               <center />
             </div>
-            <!-- 中间 -->
             <div>
-              <center-right1 />
+              <dv-border-box-1>
+                <center-right1 />
+              </dv-border-box-1>
             </div>
             <div>
               <dv-border-box-13>
@@ -80,12 +81,9 @@
 
           <!-- 第四行数据 -->
           <div class="bototm-box">
-            <dv-border-box-13>
-              <bottom-left />
-            </dv-border-box-13>
-            <dv-border-box-12>
-              <bottom-right />
-            </dv-border-box-12>
+            <dv-border-box-8>
+              <bottom />
+            </dv-border-box-8>
           </div>
         </div>
       </div>
@@ -110,8 +108,7 @@ import CenterLeft2 from '../centerLeft2/index.vue'
 import Center from '../center/index.vue'
 import CenterRight1 from '../centerRight1/index.vue'
 import CenterRight2 from '../centerRight2/index.vue'
-import BottomLeft from '../bottomLeft/index.vue'
-import BottomRight from '../bottomRight/index.vue'
+import Bottom from '../bottom/index.vue'
 
 export default defineComponent({
   components: {
@@ -120,8 +117,7 @@ export default defineComponent({
     Center,
     CenterRight1,
     CenterRight2,
-    BottomLeft,
-    BottomRight
+    Bottom,
   },
   setup() {
     // * 加载标识

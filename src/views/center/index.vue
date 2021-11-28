@@ -13,32 +13,33 @@
       </div>
     </div>
     <div class="down">
-      <div class="ranking bg-color-black">
+      <!-- <div class="ranking bg-color-black">
         <span>
           <i class="iconfont icon-tongji2"></i>
         </span>
         <span class="fs-xl text mx-2 mb-1">年度负责人组件达标榜</span>
         <dv-scroll-ranking-board class="dv-scr-rank-board" :config="ranking" />
-      </div>
+      </div> -->
+      <!-- 服务器状态 -->
       <div class="percent">
         <div class="item bg-color-black">
-          <span>今日任务通过率</span>
+          <span>CPU占用</span>
           <chart
             :tips="rate[0].tips"
             :colorObj="rate[0].colorData"
           />
         </div>
         <div class="item bg-color-black">
-          <span>今日任务达标率</span>
+          <span>GPU占用</span>
           <chart
             :tips="rate[1].tips"
             :colorObj="rate[1].colorData"
           />
         </div>
-        <div class="water">
+      </div>
+      <div class="water">
           <dv-water-level-pond class="dv-wa-le-po" :config="water" />
         </div>
-      </div>
     </div>
   </div>
 </template>
@@ -56,27 +57,19 @@ export default defineComponent({
     const titleDate = [
       {
         number: 1020,
-        text: '今年累计任务建次数'
+        text: '累计任务数'
       },
       {
         number: 18,
-        text: '本月累计任务次数'
+        text: '本月任务数'
       },
       {
         number: 4,
-        text: '今日累计任务次数'
-      },
-      {
-        number: 71,
-        text: '今年失败任务次数'
-      },
-      {
-        number: 949,
-        text: '今年失败成功次数'
+        text: '今日任务数'
       },
       {
         number: 811,
-        text: '今年达标任务个数'
+        text: '今年任务数'
       },
     ]
     const titleItem = reactive([])
@@ -86,52 +79,52 @@ export default defineComponent({
       setData()
     })
 
-    const ranking = reactive({
-      data: [
-        {
-          name: '周口',
-          value: 55
-        },
-        {
-          name: '南阳',
-          value: 120
-        },
-        {
-          name: '西峡',
-          value: 78
-        },
-        {
-          name: '驻马店',
-          value: 66
-        },
-        {
-          name: '新乡',
-          value: 80
-        },
-        {
-          name: '新乡2',
-          value: 80
-        },
-        {
-          name: '新乡3',
-          value: 80
-        },
-        {
-          name: '新乡4',
-          value: 80
-        },
-        {
-          name: '新乡5',
-          value: 80
-        },
-        {
-          name: '新乡6',
-          value: 80
-        }
-      ],
-      carousel: 'single',
-      unit: '人'
-    })
+    // const ranking = reactive({
+    //   data: [
+    //     {
+    //       name: '周口',
+    //       value: 55
+    //     },
+    //     {
+    //       name: '南阳',
+    //       value: 120
+    //     },
+    //     {
+    //       name: '西峡',
+    //       value: 78
+    //     },
+    //     {
+    //       name: '驻马店',
+    //       value: 66
+    //     },
+    //     {
+    //       name: '新乡',
+    //       value: 80
+    //     },
+    //     {
+    //       name: '新乡2',
+    //       value: 80
+    //     },
+    //     {
+    //       name: '新乡3',
+    //       value: 80
+    //     },
+    //     {
+    //       name: '新乡4',
+    //       value: 80
+    //     },
+    //     {
+    //       name: '新乡5',
+    //       value: 80
+    //     },
+    //     {
+    //       name: '新乡6',
+    //       value: 80
+    //     }
+    //   ],
+    //   carousel: 'single',
+    //   unit: '人'
+    // })
 
     const water = reactive({
       data: [24, 45],
@@ -190,7 +183,7 @@ export default defineComponent({
     }
     return {
       titleItem,
-      ranking,
+      // ranking,
       water,
       rate
     }
@@ -208,6 +201,7 @@ export default defineComponent({
     flex-wrap: wrap;
     justify-content: space-around;
     .item {
+      flex: 0 0 48%;
       border-radius: 6px;
       padding-top: 8px;
       margin-top: 8px;
@@ -225,23 +219,24 @@ export default defineComponent({
     width: 100%;
     display: flex;
     height: 255px;
-    justify-content: space-between;
+    flex-direction:column;
     .bg-color-black {
       border-radius: 5px;
     }
-    .ranking {
-      padding: 10px;
-      width: 59%;
-      .dv-scr-rank-board {
-        height: 220px;
-      }
-    }
+    // .ranking {
+    //   padding: 10px;
+    //   width: 59%;
+    //   .dv-scr-rank-board {
+    //     height: 220px;
+    //   }
+    // }
     .percent {
-      width: 40%;
+      // width: 40%;
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-around;
       .item {
-        width: 50%;
+        width: 48%;
         height: 120px;
         span {
           margin-top: 8px;
@@ -250,13 +245,14 @@ export default defineComponent({
           justify-content: center;
         }
       }
-      .water {
+      
+    }
+    .water {
         width: 100%;
         .dv-wa-le-po {
           height: 120px;
         }
       }
-    }
   }
 }
 </style>

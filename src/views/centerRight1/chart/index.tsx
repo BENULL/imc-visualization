@@ -1,50 +1,67 @@
-import { defineComponent, reactive } from 'vue'
+import { defineComponent, reactive, onMounted } from 'vue'
 import Draw from './draw'
+
 export default defineComponent({
   components: {
     Draw
   },
   setup() {
     const cdata = reactive({
-      indicatorData: [
-        { name: "数据1", max: 300 },
-        { name: "数据2", max: 250 },
-        { name: "数据3", max: 300 },
-        { name: "数据4", max: 5 },
-        { name: "数据5", max: 200 },
-        { name: "数据6", max: 100 }
+      category: [
+        "模型1",
+        "模型2",
+        "模型3",
+        "模型4",
+        "模型5",
+        "模型6",
+        "模型7",
+        "模型8",
+        "模型9",
+        "模型10",
       ],
-      dataBJ: [
-        [94, 69, 114, 2.08, 73, 39, 22],
-        [99, 73, 110, 2.43, 76, 48, 23],
-        [31, 12, 30, 0.5, 32, 16, 24],
-        [42, 27, 43, 1, 53, 22, 25],
-        [154, 117, 157, 3.05, 92, 58, 26],
-        [234, 185, 230, 4.09, 123, 69, 27],
-        [160, 120, 186, 2.77, 91, 50, 28]
+      lineData: [
+        180,
+        207,
+        245,
+        288,
+        328,
+        397,
+        367,
+        415,
+        444,
+        515,
       ],
-      dataGZ: [
-        [84, 94, 140, 2.238, 68, 18, 22],
-        [93, 77, 104, 1.165, 53, 7, 23],
-        [99, 130, 227, 3.97, 55, 15, 24],
-        [146, 84, 139, 1.094, 40, 17, 25],
-        [113, 108, 137, 1.481, 48, 15, 26],
-        [81, 48, 62, 1.619, 26, 3, 27],
-        [56, 48, 68, 1.336, 37, 9, 28]
+      barData: [
+        460,
+        500,
+        550,
+        600,
+        700,
+        850,
+        990,
+        120,
+        100,
+        200,
       ],
-      dataSH: [
-        [91, 45, 125, 0.82, 34, 23, 1],
-        [65, 27, 78, 0.86, 45, 29, 2],
-        [83, 60, 84, 1.09, 73, 27, 3],
-        [109, 81, 121, 1.28, 68, 51, 4],
-        [106, 77, 114, 1.07, 55, 51, 5],
-        [109, 81, 121, 1.28, 68, 51, 6],
-        [106, 77, 114, 1.07, 55, 51, 7]
-      ]
+      rateData: []
     })
+
+    // methods
+    const setData = () => {
+      for (let i = 0; i < cdata.barData.length - 1; i++) {
+        const rate = cdata.barData[i] / cdata.lineData[i];
+        cdata.rateData.push(rate.toFixed(2));
+      }
+    }
+
+    // 生命周期
+    onMounted(() => {
+      setData()
+    })
+
     return () => {
       return <div>
-        <draw cdata={cdata} />
+        <Draw cdata={cdata} />
       </div>
     }
   }

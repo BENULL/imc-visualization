@@ -79,7 +79,7 @@ export default defineComponent({
 
     return () => {
       const height = "220px"
-      const width = "260px"
+      const width = "310px"
 
       return <div>
         <echart options={options} height={height} width={width} />

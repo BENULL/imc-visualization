@@ -45,7 +45,7 @@ export default defineComponent({
     // 下层数据
     const dataArr = [
       {
-        number: 150,
+        number: 155,
         text: '错误分类数量'
       },
       {
@@ -108,7 +108,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-$box-width: 300px;
+$box-width: 350px;
 $box-height: 410px;
 
 .centreLeft1 {

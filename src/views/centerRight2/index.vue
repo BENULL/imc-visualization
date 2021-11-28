@@ -21,26 +21,26 @@ import { defineComponent, reactive } from 'vue'
 export default defineComponent({
   setup() {
     const config = reactive({
-      header: ['组件', '分支', '覆盖率'],
+      header: ['模型', '迭代次数', '准确率','召回率'],
       data: [
-        ['组件1', 'dev-1', "<span  class='colorGrass'>↑75%</span>"],
-        ['组件2', 'dev-2', "<span  class='colorRed'>↓33%</span>"],
-        ['组件3', 'dev-3', "<span  class='colorGrass'>↑100%</span>"],
-        ['组件4', 'rea-1', "<span  class='colorGrass'>↑94%</span>"],
-        ['组件5', 'rea-2', "<span  class='colorGrass'>↑95%</span>"],
-        ['组件6', 'fix-2', "<span  class='colorGrass'>↑63%</span>"],
-        ['组件7', 'fix-4', "<span  class='colorGrass'>↑84%</span>"],
-        ['组件8', 'fix-7', "<span  class='colorRed'>↓46%</span>"],
-        ['组件9', 'dev-2', "<span  class='colorRed'>↓13%</span>"],
-        ['组件10', 'dev-9', "<span  class='colorGrass'>↑76%</span>"]
+        ['模型1', '12', "<span  class='colorGrass'>75%</span>", "<span  class='colorGrass'>75%</span>"],
+        ['模型2', '10', "<span  class='colorRed'>33%</span>", "<span  class='colorGrass'>75%</span>"],
+        ['模型3', '8', "<span  class='colorGrass'>100%</span>", "<span  class='colorGrass'>75%</span>"],
+        ['模型4', '43', "<span  class='colorGrass'>94%</span>", "<span  class='colorGrass'>75%</span>"],
+        ['模型5', '10', "<span  class='colorGrass'>95%</span>", "<span  class='colorGrass'>75%</span>"],
+        ['模型6', '20', "<span  class='colorGrass'>63%</span>", "<span  class='colorGrass'>75%</span>"],
+        ['模型7', '30', "<span  class='colorGrass'>84%</span>", "<span  class='colorGrass'>75%</span>"],
+        ['模型8', '41', "<span  class='colorRed'>46%</span>", "<span  class='colorGrass'>75%</span>"],
+        ['模型9', '11', "<span  class='colorRed'>13%</span>", "<span  class='colorGrass'>75%</span>"],
+        ['模型10', '21', "<span  class='colorGrass'>76%</span>", "<span  class='colorGrass'>75%</span>"]
       ],
       rowNum: 7, //表格行数
       headerHeight: 35,
       headerBGC: '#0f1325', //表头
       oddRowBGC: '#0f1325', //奇数行
       evenRowBGC: '#171c33', //偶数行
-      index: true,
-      columnWidth: [50],
+      index: false,
+      columnWidth: [60],
       align: ['center']
     })
     return { config }
@@ -50,7 +50,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 $box-height: 410px;
-$box-width: 300px;
+$box-width: 350px;
 .centerRight2 {
   padding: 16px;
   padding-top: 20px;
