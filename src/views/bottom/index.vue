@@ -1,7 +1,7 @@
 <template>
   <div class="bottom">
     <div class="bg-color-black">
-      <div class="d-flex pt-2 pl-2">
+      <div class="d-flex pl-2">
         <span>
           <i class="iconfont icon-chart-line" />
         </span>
@@ -10,26 +10,26 @@
         </div>
       </div>
       <div>
-        <chart />
+        <resultCompare />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
-import Chart from "./chart/index";
+import { defineComponent } from "vue";
+import resultCompare from "../resultCompare/index.vue"
 export default defineComponent({
   components: {
-    Chart
-  }
-})
+    resultCompare,
+  },
+});
 </script>
 
 <style lang="scss" scoped>
 $box-height: 520px;
 $box-width: 100%;
-.bottom{
+.bottom {
   padding: 20px 16px;
   height: $box-height;
   width: $box-width;

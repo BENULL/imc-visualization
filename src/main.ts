@@ -9,8 +9,12 @@ import './assets/scss/style.scss';
 import './assets/icon/iconfont.css'
 // 引入 全局注册组件
 import PublicComponent from '@/components/componentInstall';
+// 引入 ElementUI
+import ElementPlus from 'element-plus';
+import 'element-plus/dist/index.css';
 
 const app = createApp(App)
+app.use(ElementPlus)
 app.use(PublicComponent)
 app.use(dataV)
 app.use(store)
