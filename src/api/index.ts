@@ -6,7 +6,12 @@ interface IResponse {
     msg: string;
 }
 
-export const test = async (): Promise<IResponse> => {
-    return await service.get('test', { loading: true });
+export const fetchCategory = async (): Promise<IResponse> => {
+    return await service.get('getCategory', { loading: true });
 };
+
+export const fetchResult = async (): Promise<IResponse> => {
+    return await service.get('getResult', { loading: true });
+};
+
 

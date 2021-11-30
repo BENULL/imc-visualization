@@ -3,14 +3,14 @@
       <div class="fliters">
 
       </div>
-      <div class="content">
-        <el-card v-for="(item, index) in 100" :key="index"
+      <div class="content" v-if="resultData">
+        <el-card v-for="(item, index) in resultData.results" :key="index"
         shadow="hover" :body-style="{ padding: '0px' }">
           <div style="padding: 14px">
-            <h4>图片</h4>
+            <h4>{{item.image_name}}</h4>
           </div>
           <img
-            src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+            :src="`/static/${resultData.model}/${resultData.record}/images/${item.image_name}`"
           />
         </el-card>
       </div>
@@ -18,19 +18,27 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from "vue";
-import { test } from '@/api'
+import { defineComponent, onMounted, reactive, ref } from "vue";
+import { fetchResult, fetchCategory } from '@/api'
 export default defineComponent({
   setup() {
-    const fetchData = ()=>{
-      test().then((response)=>{
-        console.log(response.data)
+    const resultData = ref()
+
+    const fetchResultData = ()=>{
+      fetchResult().then((response)=>{
+        // data.result = response.data
+        resultData.value = response.data
+        console.log(resultData)
       })
     }
     onMounted(()=>{
-      fetchData()
+      fetchResultData()
     })
+    return {
+      resultData
+    }
   }
+
 
 });
 </script>

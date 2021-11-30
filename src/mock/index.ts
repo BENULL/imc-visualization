@@ -1,8 +1,14 @@
 import Mock from 'mockjs'
-import category from './data/category.json'
+import categoryResponse from './data/category.json'
+import resultResponse from './data/test_model_01.json'
 
-Mock.mock('/api/test', 'get', () => {
-    return category
+Mock.mock('/api/getResult', 'get', () => {
+    return resultResponse
+})
+
+
+Mock.mock('/api/getCategory', 'get', () => {
+    return categoryResponse
 })
 
 export default Mock

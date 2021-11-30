@@ -2,7 +2,7 @@
     "status": 0,
     "msg": "",
     "data": {
-        "test_model_01.pth": {
+        "test_model_01": {
             "date_20210903_070342": {
                 "test_time": "2021-09-03 07:03:42",
                 "threshold": 91.3
