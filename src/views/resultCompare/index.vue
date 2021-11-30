@@ -18,8 +18,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, onMounted } from "vue";
+import { test } from '@/api'
 export default defineComponent({
+  setup() {
+    const fetchData = ()=>{
+      test().then((response)=>{
+        console.log(response.data)
+      })
+    }
+    onMounted(()=>{
+      fetchData()
+    })
+  }
 
 });
 </script>

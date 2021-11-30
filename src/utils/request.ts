@@ -6,9 +6,9 @@ let loading: ILoadingInstance
 
 // TODO 跨域
 const service = axios.create({
-    baseURL: "http://localhost:5000/imc-visualization/api",
+    baseURL: "/api",
     timeout: 5000,
-    withCredentials: true, // send cookies when cross-domain requests
+    withCredentials: false, // send cookies when cross-domain requests
 })
 
 service.interceptors.request.use(

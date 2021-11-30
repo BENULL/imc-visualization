@@ -13,6 +13,11 @@ import PublicComponent from '@/components/componentInstall';
 import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
 
+if (process.env.NODE_ENV === 'development') {
+    require ('./mock/index.ts')
+}
+// require ('./mock/index.ts')
+
 const app = createApp(App)
 app.use(ElementPlus)
 app.use(PublicComponent)
