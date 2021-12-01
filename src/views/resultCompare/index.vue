@@ -57,7 +57,7 @@ export default defineComponent({
     // background-color: greenyellow;
   }
   .content {
-    height: 410px;
+    height: 420px;
     overflow: auto;
     display: flex;
     margin-top: 10px;

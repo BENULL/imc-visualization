@@ -30,12 +30,12 @@ export default defineComponent({
 $box-height: 520px;
 $box-width: 100%;
 .bottom {
-  padding: 20px 16px;
+  padding: 10px 16px;
   height: $box-height;
   width: $box-width;
   border-radius: 5px;
   .bg-color-black {
-    height: $box-height - 35px;
+    height: $box-height - 20px;
     border-radius: 10px;
   }
   .text {
