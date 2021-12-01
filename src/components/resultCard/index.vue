@@ -49,7 +49,7 @@ export default defineComponent({
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      background-color: #1b4a84;
+      background-color: #1b4a847a;
       .img-name {
       }
       .score {
