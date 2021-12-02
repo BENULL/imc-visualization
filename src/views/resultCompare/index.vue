@@ -18,19 +18,14 @@
       >
       <el-slider
         class="slider"
-        v-model="ranges"
+        @change="sliderChange"
         range
         :marks="marks"
         :min="0"
         :max="100"
       >
       </el-slider>
-      <el-input
-        class="input"
-        v-model="searchInput"
-        placeholder="图片名称"
-        clearable
-      >
+      <el-input class="input" v-model="search" placeholder="图片名称" clearable>
         <template #append>
           <el-button type="info" plain @click="searchClick"
             ><el-icon><Search /></el-icon
@@ -53,10 +48,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, ref, toRefs } from "vue";
+import { defineComponent, onMounted, reactive, ref, toRefs, watch } from "vue";
 import { fetchResult, fetchCategory } from "@/api";
 import resultCard from "../../components/resultCard/index.vue";
-import { RefreshLeft, Search } from "@element-plus/icons";
+import { Search } from "@element-plus/icons";
 
 export default defineComponent({
   components: {
@@ -65,6 +60,7 @@ export default defineComponent({
   },
   setup() {
     const resultData = ref();
+    const search = ref();
     const state = reactive({
       positive: true,
       negative: true,
@@ -79,14 +75,13 @@ export default defineComponent({
         80: "80",
       },
       cascaderValue: [],
-      test_time: String,
-      threshold: Number,
+      test_time: "",
+      threshold: 0,
       options: [],
     });
 
     const handleCascaderChange = (value) => {
       state.cascaderValue = value;
-      console.log(value);
     };
 
     const fetchCategoryData = () => {
@@ -103,10 +98,17 @@ export default defineComponent({
       fetchResult({
         model: state.cascaderValue[0],
         record: state.cascaderValue[1],
+        search: state.searchInput,
+        pos: state.positive,
+        neg: state.negative,
+        left: state.ranges[0],
+        right: state.ranges[1],
       }).then((response) => {
-        // data.result = response.data
         resultData.value = response.data;
       });
+    };
+    const sliderChange = (val) => {
+      state.ranges = val;
     };
     const posChange = (checked) => {
       state.positive = checked;
@@ -115,20 +117,23 @@ export default defineComponent({
       state.negative = checked;
     };
     const searchClick = () => {
-      // TODO search function
-      alert(state.searchInput);
+      state.searchInput = search.value;
     };
+    watch(state, (newValue, oldValue) => {
+       fetchResultData();
+    });
 
     onMounted(() => {
       fetchCategoryData();
-      fetchResultData();
     });
     return {
       resultData,
+      search,
       ...toRefs(state),
       handleCascaderChange,
       searchClick,
       posChange,
+      sliderChange,
       negChange,
     };
   },
@@ -136,8 +141,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-::v-deep .el-input {
-}
 .result-compare {
   // width: 100%;
   // height: 300px;
@@ -158,6 +161,7 @@ export default defineComponent({
       --el-input-text-color: white;
       --el-input-border: 1px solid #1b4a84;
       --el-input-bg-color: #1b4a847a;
+      --el-input-placeholder-color: #9093999e;
       .el-input-group__append,
       .el-input-group__prepend {
         border: 1px solid #1b4a84;
