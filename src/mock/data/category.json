@@ -1,36 +1,42 @@
 {
     "status": 0,
     "msg": "",
-    "data": {
-        "test_model_01": {
-            "date_20210903_070342": {
-                "test_time": "2021-09-03 07:03:42",
-                "threshold": 91.3
-            },
-            "date_20210909_132211": {
-                "test_time": "2021-09-09 13:22:11",
-                "threshold": 90.7
-            },
-            "date_20210910_142514": {
-                "test_time": "2021-09-10 14:25:14",
-                "threshold": 92.9
-            },
-            "date_20210911_104121": {
-                "test_time": "2021-09-11 10:41:21",
-                "threshold": 91.5
-            },
-            "date_20210916_194828": {
-                "test_time": "2021-09-16 19:48:28",
-                "threshold": 94.2
-            },
-            "date_20210918_181120": {
-                "test_time": "2021-09-18 18:11:20",
-                "threshold": 93.9
-            },
-            "date_20210921_210109": {
-                "test_time": "2021-09-21 21:01:09",
-                "threshold": 90.9
-            }
+    "data": [
+        {
+            "label": "test_model_01",
+            "value": "test_model_01",
+            "children": [
+                {
+                    "label": "date_20210903_070342",
+                    "value": "date_20210903_070342",
+                    "test_time": "2021-09-03 07:03:42",
+                    "threshold": 91.3
+                },
+                {
+                    "label": "date_20210909_132211",
+                    "value": "date_20210909_132211",
+                    "test_time": "2021-09-09 13:22:11",
+                    "threshold": 90.7
+                }
+            ]
+        },
+        {
+            "label": "test_model_02",
+            "value": "test_model_02",
+            "children": [
+                {
+                    "label": "date_20210903_070342",
+                    "value": "date_20210903_070342",
+                    "test_time": "2021-09-03 07:03:42",
+                    "threshold": 91.3
+                },
+                {
+                    "label": "date_20210909_132211",
+                    "value": "date_20210909_132211",
+                    "test_time": "2021-09-09 13:22:11",
+                    "threshold": 90.7
+                }
+            ]
         }
-    }
+    ]
 }

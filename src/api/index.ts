@@ -10,8 +10,8 @@ export const fetchCategory = async (): Promise<IResponse> => {
     return await service.get('getCategory', { loading: true });
 };
 
-export const fetchResult = async (): Promise<IResponse> => {
-    return await service.get('getResult', { loading: true });
+export const fetchResult = async (params: any): Promise<IResponse> => {
+    return await service.get('getResult', { params:params,loading: true });
 };
 
 
