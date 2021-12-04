@@ -37,9 +37,11 @@
             </div>
           </div>
           <div class="d-flex aside-width">
+            <router-link to="/console">
             <div class="react-right bg-color-blue mr-3">
               <span class="text fw-b">{{ subtitle[2] }}</span>
             </div>
+            </router-link>
             <div class="react-right mr-4 react-l-s">
               <span class="react-after"></span>
               <span class="text">
@@ -163,6 +165,7 @@ export default defineComponent({
       }, 1000)
     }
 
+
     // return
     return {
       loading,
@@ -170,7 +173,7 @@ export default defineComponent({
       appRef,
       title,
       subtitle,
-      moduleInfo
+      moduleInfo,
     }
   }
 })

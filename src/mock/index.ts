@@ -11,5 +11,13 @@ Mock.mock(RegExp('/api/getResult'+'*'), 'get', (options) => {
 Mock.mock('/api/getCategory', 'get', () => {
     return categoryResponse
 })
+Mock.mock('/api/users/login', 'post', () => {
+    return {
+        status:0,
+        data:{
+            accessToken:'123'
+        }
 
+    }
+})
 export default Mock
