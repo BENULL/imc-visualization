@@ -1,5 +1,5 @@
 <template>
-  <div class="result-compare">
+  <div class="result-compare" :class="mode">
     <div class="fliters">
       <el-cascader
         class="cascader"
@@ -48,10 +48,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, ref, toRefs, watch } from "vue";
+import {
+  defineComponent,
+  onMounted,
+  reactive,
+  ref,
+  toRefs,
+  watch,
+  computed,
+} from "vue";
 import { fetchResult, fetchCategory } from "@/api";
 import resultCard from "../../components/resultCard/index.vue";
 import { Search } from "@element-plus/icons";
+import { useRoute } from "vue-router";
 
 export default defineComponent({
   components: {
@@ -59,6 +68,7 @@ export default defineComponent({
     Search,
   },
   setup() {
+    const route = useRoute();
     const resultData = ref();
     const search = ref();
     const state = reactive({
@@ -78,6 +88,12 @@ export default defineComponent({
       test_time: "",
       threshold: 0,
       options: [],
+    });
+    const mode = computed(() => {
+      return {
+        dark: route.path === "/",
+        simple: route.path !== "/",
+      };
     });
 
     const handleCascaderChange = (value) => {
@@ -120,13 +136,15 @@ export default defineComponent({
       state.searchInput = search.value;
     };
     watch(state, (newValue, oldValue) => {
-       fetchResultData();
+      fetchResultData();
     });
 
     onMounted(() => {
       fetchCategoryData();
     });
     return {
+      route,
+      mode,
       resultData,
       search,
       ...toRefs(state),
@@ -148,13 +166,43 @@ export default defineComponent({
     color: #c3cbde;
   }
   .fliters {
-    width: 100%;
-    height: 50px;
-    padding: 5px 5px 5px 5px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
+
+    .el-check-tag {
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      width: 80px;
+      padding: 0 0 0 0;
+      margin-left: 0.5%;
+      font-weight: 600;
+    }
+    ::v-deep .el-slider {
+      // TODO slider
+      display: none;
+      width: 15%;
+    }
+  }
+  .content {
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .content::-webkit-scrollbar {
+    width: 0 !important;
+  }
+}
+
+.dark {
+  .fliters {
+    width: 100%;
+    height: 50px;
+    padding: 5px 5px 5px 5px;
     ::v-deep .input {
       width: 20%;
       margin-left: auto;
@@ -180,13 +228,6 @@ export default defineComponent({
     }
 
     .el-check-tag {
-      text-align: center;
-      height: 40px;
-      line-height: 40px;
-      width: 80px;
-      padding: 0 0 0 0;
-      margin-left: 0.5%;
-      font-weight: 600;
       background-color: #195bd636;
       border: 1px solid #1b4a84;
       color: white;
@@ -194,31 +235,13 @@ export default defineComponent({
     .is-checked {
       background-color: #195cd6;
     }
-    ::v-deep .el-slider {
-      // TODO slider
-      display: none;
-      width: 15%;
-    }
   }
-
   .content {
     height: 420px;
-    overflow: auto;
-    display: flex;
     margin-top: 10px;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-
-    // scrollbar-width: none; /* firefox */
-    // -ms-overflow-style: none; /* IE 10+ */
-    // overflow-x: hidden;
-    // overflow-y: auto;
-    // ::-webkit-scrollbar {width: 0 !important}
   }
-  .content::-webkit-scrollbar {
-    width: 0 !important;
-  }
+}
+.simple {
 }
 </style>
 

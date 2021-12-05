@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" :class="mode">
     <el-card
       shadow="hover"
       :class="{ positive: data.item.type > 0, negative: data.item.type < 0 }"
@@ -27,32 +27,32 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
+import { useRoute } from "vue-router";
 
 export default defineComponent({
   props: {
     data: Object,
   },
   setup() {
-    return {};
+    const route = useRoute();
+    const mode = computed(() => {
+      return {
+        dark: route.path === "/",
+        simple: route.path !== "/",
+      };
+    });
+    return {
+      mode,
+    };
   },
 });
 </script>
 <style lang="scss" scoped>
-
 .card {
-  .positive{
-      color: #3de7c9;
-  }
-  .negative{
-    color: #fa7293ad;
-  }
   .el-card {
     border-radius: 10px;
-    border: 1px solid #1b4a84;
     overflow: hidden;
-    
-    background-color: rgba(19, 25, 47, 0.6);
     transition: var(--el-transition-duration);
     margin-bottom: 15px;
     .card-header {
@@ -60,15 +60,11 @@ export default defineComponent({
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      background-color: #1b4a847a;
       font-weight: bolder;
-      .img-name {
-      }
       .score {
-            font-family: cursive;
-      font-size: xx-large;
-      font-weight: bolder;
-        
+        font-family: cursive;
+        font-size: xx-large;
+        font-weight: bolder;
       }
     }
     .card-content {
@@ -76,17 +72,36 @@ export default defineComponent({
       flex-direction: row;
       flex-wrap: nowrap;
       justify-content: space-around;
-      .img-content {
-        border: 2px solid;
-        width: 170px;
-        height: 365px;
-        margin: 5px 5px 5px 5px;
-      }
       img {
         width: 100%;
         height: 100%;
       }
     }
   }
+}
+.dark {
+  .positive {
+    color: #3de7c9;
+  }
+  .negative {
+    color: #fa7293ad;
+  }
+  .el-card {
+    border: 1px solid #1b4a84;
+    background-color: rgba(19, 25, 47, 0.6);
+    .card-header {
+      background-color: #1b4a847a;
+    }
+    .card-content {
+      .img-content {
+        border: 2px solid;
+        width: 170px;
+        height: 365px;
+        margin: 5px 5px 5px 5px;
+      }
+    }
+  }
+}
+.simple {
 }
 </style>
