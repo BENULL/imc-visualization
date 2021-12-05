@@ -45,7 +45,7 @@ defineProps({
   width: 100%;
   height: 84px;
   line-height: 84px;
-  background: #0c202b;
+  background: #71cdf3;
   text-align: center;
   overflow: hidden;
 
@@ -58,8 +58,7 @@ defineProps({
     width: 100%;
 
     & .sidebar-logo-text {
-      width: 55%;
-      vertical-align: middle;
+      width: 120px;
     }
 
     & .sidebar-title {

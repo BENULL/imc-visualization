@@ -25,7 +25,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/console',
     component: Layout,
-    // redirect: '/dashboard',
+    redirect: '/console/dashboard',
     children: [
       {
         path: 'dashboard',
@@ -36,7 +36,8 @@ export const constantRoutes: Array<RouteRecordRaw> = [
           icon: 'dashboard',
           affix: true
         }
-      }
+      },
+
     ]
   },
 ]
@@ -46,6 +47,57 @@ export const constantRoutes: Array<RouteRecordRaw> = [
 
 // 动态路由
 export const asyncRoutes: Array<RouteRecordRaw> = [
+  {
+    path: '/console/model',
+    component: Layout,
+    redirect: 'noRedirect',
+    children: [
+      {
+        path: 'index',
+        component: () => import(/* webpackChunkName: "console-model" */ '@/views/console/ModelManage.vue'),
+        name: 'ModelManage',
+        meta: {
+          title: '模型管理',
+          icon: 'chart',
+          roles: ['admin', 'editor'], // 可以在根路由中设置角色
+        }
+      }
+    ]
+  },
+  {
+    path: '/console/result',
+    component: Layout,
+    redirect: 'noRedirect',
+    children: [
+      {
+        path: 'index',
+        component: () => import(/* webpackChunkName: "console-result" */ '@/views/console/ResultManage.vue'),
+        name: 'ResultManage',
+        meta: {
+          title: '模型结果',
+          icon: 'example',
+          roles: ['admin', 'editor'], // 可以在根路由中设置角色
+        }
+      }
+    ]
+  },
+  {
+    path: '/console/data',
+    component: Layout,
+    redirect: 'noRedirect',
+    children: [
+      {
+        path: 'index',
+        component: () => import(/* webpackChunkName: "console-data" */ '@/views/console/DataManage.vue'),
+        name: 'DataManage',
+        meta: {
+          title: '数据管理',
+          icon: 'form',
+          roles: ['admin', 'editor'], // 可以在根路由中设置角色
+        }
+      }
+    ]
+  },
   { // 必须将 'Error' 路由放在最后 Must put the 'Error' route at the end
     path: '/:pathMatch(.*)*',
     component: Layout,
