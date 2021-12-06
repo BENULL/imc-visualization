@@ -135,7 +135,7 @@ export default defineComponent({
     const searchClick = () => {
       state.searchInput = search.value;
     };
-    watch(state, (newValue, oldValue) => {
+    watch(state, () => {
       fetchResultData();
     });
 
@@ -196,6 +196,7 @@ export default defineComponent({
   .content::-webkit-scrollbar {
     width: 0 !important;
   }
+  
 }
 
 .dark {
@@ -240,8 +241,32 @@ export default defineComponent({
     height: 420px;
     margin-top: 10px;
   }
+
 }
 .simple {
+  .fliters {
+    width: 100%;
+    height: 50px;
+    padding: 10px 30px 5px 15px;
+    ::v-deep .input {
+      width: 20%;
+      margin-left: auto;
+    }
+    ::v-deep .el-cascader {
+      width: 18%;
+    }
+    .el-check-tag {
+      background-color: #247af15c;
+      color: white;
+    }
+    .is-checked {
+      background-color: #247af1;
+    } 
+  }
+  .content {
+    height: 810px;
+    margin-top: 10px;
+  }
 }
 </style>
 

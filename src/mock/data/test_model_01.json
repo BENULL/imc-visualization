@@ -124,6 +124,126 @@
                 "score": 48.9,
                 "shape": "rect",
                 "type": 1
+            },
+            {
+                "boundingbox": {},
+                "image_name": "4AX3H1000010124620_1_23.jpg",
+                "mask_name": "4AX3H1000010124620_1_23.jpg",
+                "score": 40.6,
+                "shape": "rect",
+                "type": -1
+            },
+            {
+                "boundingbox": {},
+                "image_name": "4AX3H1000010124620_1_3.jpg",
+                "mask_name": "4AX3H1000010124620_1_3.jpg",
+                "score": 14.9,
+                "shape": "rect",
+                "type": -1
+            },
+            {
+                "boundingbox": {},
+                "image_name": "4AX3H1000010124620_5_0.jpg",
+                "mask_name": "4AX3H1000010124620_5_0.jpg",
+                "score": 90.5,
+                "shape": "rect",
+                "type": 1
+            },
+            {
+                "boundingbox": {},
+                "image_name": "4AX3H1000011624720_1_15.jpg",
+                "mask_name": "4AX3H1000011624720_1_15.jpg",
+                "score": 88.5,
+                "shape": "rect",
+                "type": 1
+            },
+            {
+                "boundingbox": {},
+                "image_name": "4AX3H1000011624720_1_17.jpg",
+                "mask_name": "4AX3H1000011624720_1_17.jpg",
+                "score": 60.3,
+                "shape": "rect",
+                "type": 1
+            },
+            {
+                "boundingbox": {},
+                "image_name": "4AX3H1000011624720_2_15.jpg",
+                "mask_name": "4AX3H1000011624720_2_15.jpg",
+                "score": 77.5,
+                "shape": "rect",
+                "type": -1
+            },
+            {
+                "boundingbox": {},
+                "image_name": "4AX3H1000011624720_2_21.jpg",
+                "mask_name": "4AX3H1000011624720_2_21.jpg",
+                "score": 42.5,
+                "shape": "rect",
+                "type": 1
+            },
+            {
+                "boundingbox": {},
+                "image_name": "4AX3H1000011624720_2_8.jpg",
+                "mask_name": "4AX3H1000011624720_2_8.jpg",
+                "score": 3.3,
+                "shape": "rect",
+                "type": 1
+            },
+            {
+                "boundingbox": {},
+                "image_name": "4AX3H1000011624720_3_23.jpg",
+                "mask_name": "4AX3H1000011624720_3_23.jpg",
+                "score": 74.4,
+                "shape": "rect",
+                "type": 1
+            },
+            {
+                "boundingbox": {},
+                "image_name": "4AX3H1000011624720_4_22.jpg",
+                "mask_name": "4AX3H1000011624720_4_22.jpg",
+                "score": 95.4,
+                "shape": "rect",
+                "type": -1
+            },
+            {
+                "boundingbox": {},
+                "image_name": "4AX3H1000011634720_0_22.jpg",
+                "mask_name": "4AX3H1000011634720_0_22.jpg",
+                "score": 11.8,
+                "shape": "rect",
+                "type": 1
+            },
+            {
+                "boundingbox": {},
+                "image_name": "4AX3H1000011634720_1_11.jpg",
+                "mask_name": "4AX3H1000011634720_1_11.jpg",
+                "score": 43.1,
+                "shape": "rect",
+                "type": 1
+            },
+            {
+                "boundingbox": {},
+                "image_name": "4AX3H1000011634720_1_4.jpg",
+                "mask_name": "4AX3H1000011634720_1_4.jpg",
+                "score": 57.0,
+                "shape": "rect",
+                "type": 1
+            },
+            {
+                "boundingbox": {},
+                "image_name": "4AX3H1000011634720_5_12.jpg",
+                "mask_name": "4AX3H1000011634720_5_12.jpg",
+                "score": 7.4,
+                "shape": "rect",
+                "type": -1
+            },
+            {
+                "boundingbox": {},
+                "image_name": "4AX3H1000011634720_5_14.jpg",
+                "mask_name": "4AX3H1000011634720_5_14.jpg",
+                "score": 48.9,
+                "shape": "rect",
+                "type": 1
             }
         ],
         "test_time": "2021-09-03 07:03:42",

@@ -103,5 +103,27 @@ export default defineComponent({
   }
 }
 .simple {
+  .positive {
+    color: #3de7c9;
+  }
+  .negative {
+    color: #e73e3d;
+  }
+  .el-card {
+    border: 1px solid #909399;
+    box-shadow: 3px 3px 3px #909399;
+    background-color: #b6b6b6;
+    .card-header {
+      background-color: #152d3dcc;
+    }
+    .card-content {
+      .img-content {
+        border: 2px solid;
+        width: 140px;
+        height: 340px;
+        margin: 5px 5px 5px 5px;
+      }
+    }
+  }
 }
 </style>
