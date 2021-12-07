@@ -45,5 +45,20 @@ export const updateModel = async (data): Promise<IResponse> => {
     return await service.post('model/update', data, {loading: true });
 };
 
+// 获取实验数据
+export const fetchExperimentsData = async (params: any): Promise<IResponse> => {
+    return await service.get('experiment/fetchAll', { params: params,loading: true });
+};
+
+// 添加实验
+export const addExperiment = async (data): Promise<IResponse> => {
+    return await service.post('experiment/add', data, {loading: true });
+};
+
+// 更新实验
+export const updateExperiment = async (data): Promise<IResponse> => {
+    return await service.post('experiment/update', data, {loading: true });
+};
+
 
 

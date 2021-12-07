@@ -2,7 +2,7 @@ import Mock from 'mockjs'
 import categoryResponse from './data/category.json'
 import resultResponse from './data/test_model_01.json'
 import modelsResponse from './data/models-info.json'
-
+import experimentsResponse from './data/experiments-info.json'
 
 Mock.mock('/api/users/login', 'post', () => {
     return {
@@ -34,6 +34,23 @@ Mock.mock('/api/model/add', 'post', () => {
     }
 })
 Mock.mock('/api/model/update', 'post', () => {
+    return {
+        status: 0,
+        msg: "更新成功"
+    }
+})
+
+Mock.mock(RegExp('/api/experiment/fetchAll' + '*'), 'get', (options) => {
+    console.log(options);
+    return experimentsResponse
+})
+Mock.mock('/api/experiment/add', 'post', () => {
+    return {
+        status: 0,
+        msg: "添加成功"
+    }
+})
+Mock.mock('/api/experiment/update', 'post', () => {
     return {
         status: 0,
         msg: "更新成功"

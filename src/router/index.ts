@@ -88,7 +88,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: 'index',
-        component: () => import(/* webpackChunkName: "console-experiment" */ '@/views/console/ExperimentManage.vue'),
+        component: () => import(/* webpackChunkName: "console-experiment" */ '@/views/console/experimentManage/index.vue'),
         name: 'ExperimentManage',
         meta: {
           title: '实验管理',

@@ -1,0 +1,62 @@
+{
+    "status": 0,
+    "msg": "",
+    "data": [
+        {
+            "model_name": "ResNet-101",
+            "model_id": 12,
+            "threshold":67,
+            "f1_score":0.92,
+            "precision":0.12,
+            "recall":0.78,
+            "epoch":100,
+            "lr":0.01,
+            "batchsize":256,
+            "experiment_id":122,
+            "start_time":"2021-12-07 10:10:00",
+            "end_time":"2021-12-07 12:10:00"
+        },
+        {
+            "model_name": "ResNet-14",
+            "model_id": 12,
+            "threshold":67,
+            "f1_score":0.42,
+            "precision":0.10,
+            "recall":0.32,
+            "epoch":240,
+            "lr":0.001,
+            "batchsize":512,
+            "experiment_id":12,
+            "start_time":"2021-12-07 10:10:00",
+            "end_time":"2021-12-07 12:10:00"
+        },
+        {
+            "model_name": "ResNet-12",
+            "model_id": 12,
+            "threshold":67,
+            "f1_score":0.92,
+            "precision":0.12,
+            "recall":0.78,
+            "epoch":100,
+            "lr":0.01,
+            "batchsize":256,
+            "experiment_id":122,
+            "start_time":"2021-12-07 10:10:00",
+            "end_time":"2021-12-07 12:10:00"
+        },
+        {
+            "model_name": "ResNet-11",
+            "model_id": 12,
+            "threshold":67,
+            "f1_score":0.92,
+            "precision":0.12,
+            "recall":0.78,
+            "epoch":100,
+            "lr":0.01,
+            "batchsize":256,
+            "experiment_id":122,
+            "start_time":"2021-12-07 10:10:00",
+            "end_time":"2021-12-07 12:10:00"
+        }
+    ]
+}
