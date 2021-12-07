@@ -1,0 +1,20 @@
+{
+    "status": 0,
+    "msg": "",
+    "data": [
+        {
+            "model_name": "ResNet-101",
+            "model_id": 12,
+            "description": "深度残差网络（Deep residual network, ResNet)",
+            "params":85205312,
+            "structure":""
+        },
+        {
+            "model_name": "VGG-16",
+            "model_id": 11,
+            "description": "Very Deep Convolutional Networks for Large-Scale Image Recognition",
+            "params":138357544,
+            "structure":""
+        }
+    ]
+}

@@ -92,7 +92,7 @@ onBeforeUnmount(() => {
   @include clearfix;
   position: relative;
   width: 100%;
-  background: white;
+  background: #f0f2f5;
 }
 
 .drawer-bg {

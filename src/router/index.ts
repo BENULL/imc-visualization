@@ -54,7 +54,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: 'index',
-        component: () => import(/* webpackChunkName: "console-model" */ '@/views/console/ModelManage.vue'),
+        component: () => import(/* webpackChunkName: "console-model" */ '@/views/console/modelManage/index.vue'),
         name: 'ModelManage',
         meta: {
           title: '模型管理',
@@ -76,6 +76,23 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
         meta: {
           title: '模型结果',
           icon: 'example',
+          roles: ['admin', 'editor'], // 可以在根路由中设置角色
+        }
+      }
+    ]
+  },
+  {
+    path: '/console/experiment',
+    component: Layout,
+    redirect: 'noRedirect',
+    children: [
+      {
+        path: 'index',
+        component: () => import(/* webpackChunkName: "console-experiment" */ '@/views/console/ExperimentManage.vue'),
+        name: 'ExperimentManage',
+        meta: {
+          title: '实验管理',
+          icon: 'excel',
           roles: ['admin', 'editor'], // 可以在根路由中设置角色
         }
       }
