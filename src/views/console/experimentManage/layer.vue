@@ -6,26 +6,60 @@
       label-width="120px"
       style="margin-right: 30px"
     >
-      <el-form-item label="模型名称：" prop="model_name">
-        <el-input v-model="form.model_name" placeholder="请输入名称"></el-input>
-      </el-form-item>
-      <el-form-item label="参数量：" prop="params">
-        <el-input v-model="form.params" oninput="value=value.replace(/[^\d]/g,'')" placeholder="只能输入正整数"></el-input>
-      </el-form-item>
-      <el-form-item label="模型描述：" prop="description">
+      <el-form-item label="实验名称：" prop="experiment_name">
         <el-input
-          v-model="form.description"
-          placeholder="请输入描述"
-          type="textarea"
-          :row="3"
+          v-model="form.experiment_name"
+          placeholder="请输入名称"
         ></el-input>
       </el-form-item>
-      <el-form-item label="模型结构：" prop="structure">
+      <el-form-item label="实验时间：" prop="test_name">
+        <el-date-picker
+          v-model="form.test_time"
+          type="datetime"
+          placeholder="Select date and time"
+        >
+        </el-date-picker>
+      </el-form-item>
+      <el-form-item label="模型：" prop="model_id">
+        <el-select v-model="form.model_id" placeholder="Select">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
+        </el-select>
+      </el-form-item>
+
+      <el-form-item label="阈值：" prop="threshold">
         <el-input
-        type="textarea"
-          :row="3"
-          v-model="form.structure"
-          placeholder="请输入模型结构"
+          v-model="form.threshold"
+        ></el-input>
+      </el-form-item>
+       <el-form-item label="F1-Score：" prop="f1_score">
+        <el-input
+          v-model="form.f1_score"
+        ></el-input>
+      </el-form-item>
+       <el-form-item label="精准率：" prop="precision">
+        <el-input
+          v-model="form.precision"
+        ></el-input>
+      </el-form-item>
+       <el-form-item label="召回率：" prop="recall">
+        <el-input
+          v-model="form.recall"
+        ></el-input>
+      </el-form-item>
+       <el-form-item label="迭代：" prop="epoch">
+        <el-input
+          v-model="form.epoch"
+        ></el-input>
+      </el-form-item>
+       <el-form-item label="批大小：" prop="batchsize">
+        <el-input
+          v-model="form.batchsize"
         ></el-input>
       </el-form-item>
     </el-form>
@@ -33,9 +67,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import { addExperiment, updateExperiment } from "@/api";
+import { computed, defineComponent, ref } from "vue";
+import { addExperiment, updateExperiment, fetchModelsData } from "@/api";
 import Layer from "@/components/layer/index.vue";
+import type { IExperiment } from "./index.vue";
 export default defineComponent({
   components: {
     Layer,
@@ -53,17 +88,18 @@ export default defineComponent({
     },
   },
   setup(props) {
+    const options = ref([])
     const layerDom = ref(null);
-    let form = ref({
-      model_name:'',
-      params:undefined,
-      description:'',
-      structure:'',
-      model_id:undefined
-    });
-
+    let form = ref({} as IExperiment);
     init();
     function init() {
+      fetchModelsData({}).then((res)=>{
+        options.value =  (res.data || []).map(item => ({
+          label:item.model_name,
+          value:item.model_id
+        }))
+      })
+      
       // 用于判断新增还是编辑功能
       if (props.layer.row) {
         form.value = JSON.parse(JSON.stringify(props.layer.row)); // 数量量少的直接使用这个转
@@ -71,6 +107,7 @@ export default defineComponent({
     }
     return {
       form,
+      options,
       layerDom,
     };
   },
@@ -85,7 +122,7 @@ export default defineComponent({
     },
     // 新增提交事件
     addForm(params) {
-      console.log(params)
+      console.log(params);
       addExperiment(params).then((res) => {
         this.$message({
           type: "success",
@@ -97,7 +134,7 @@ export default defineComponent({
     },
     // 编辑提交事件
     updateForm(params) {
-      console.log(params)
+      console.log(params);
       updateExperiment(params).then((res) => {
         this.$message({
           type: "success",

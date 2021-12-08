@@ -13,7 +13,8 @@
             "lr":0.01,
             "batchsize":256,
             "experiment_id":122,
-            "start_time":"2021-12-07 10:10:00",
+            "experiment_name":"date_20210903_070342",
+            "test_time":"2021-12-07 10:10:00",
             "end_time":"2021-12-07 12:10:00"
         },
         {
@@ -27,7 +28,8 @@
             "lr":0.001,
             "batchsize":512,
             "experiment_id":12,
-            "start_time":"2021-12-07 10:10:00",
+            "experiment_name":"date_20210903_070241",
+            "test_time":"2021-12-07 10:10:00",
             "end_time":"2021-12-07 12:10:00"
         },
         {
@@ -41,7 +43,8 @@
             "lr":0.01,
             "batchsize":256,
             "experiment_id":122,
-            "start_time":"2021-12-07 10:10:00",
+            "experiment_name":"date_20210903_070342",
+            "test_time":"2021-12-07 10:10:00",
             "end_time":"2021-12-07 12:10:00"
         },
         {
@@ -55,7 +58,8 @@
             "lr":0.01,
             "batchsize":256,
             "experiment_id":122,
-            "start_time":"2021-12-07 10:10:00",
+            "experiment_name":"date_20210903_070342",
+            "test_time":"2021-12-07 10:10:00",
             "end_time":"2021-12-07 12:10:00"
         }
     ]
