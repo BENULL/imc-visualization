@@ -21,7 +21,7 @@
         </el-date-picker>
       </el-form-item>
       <el-form-item label="模型：" prop="model_id">
-        <el-select v-model="form.model_id" placeholder="Select">
+        <el-select v-model.number="form.model_id" placeholder="Select">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -34,32 +34,32 @@
 
       <el-form-item label="阈值：" prop="threshold">
         <el-input
-          v-model="form.threshold"
+          v-model.number="form.threshold"
         ></el-input>
       </el-form-item>
        <el-form-item label="F1-Score：" prop="f1_score">
         <el-input
-          v-model="form.f1_score"
+          v-model.number="form.f1_score"
         ></el-input>
       </el-form-item>
        <el-form-item label="精准率：" prop="precision">
         <el-input
-          v-model="form.precision"
+          v-model.number="form.precision"
         ></el-input>
       </el-form-item>
        <el-form-item label="召回率：" prop="recall">
         <el-input
-          v-model="form.recall"
+          v-model.number="form.recall"
         ></el-input>
       </el-form-item>
        <el-form-item label="迭代：" prop="epoch">
         <el-input
-          v-model="form.epoch"
+          v-model.number="form.epoch"
         ></el-input>
       </el-form-item>
        <el-form-item label="批大小：" prop="batchsize">
         <el-input
-          v-model="form.batchsize"
+          v-model.number="form.batchsize"
         ></el-input>
       </el-form-item>
     </el-form>

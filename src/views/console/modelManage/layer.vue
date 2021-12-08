@@ -10,7 +10,7 @@
         <el-input v-model="form.model_name" placeholder="请输入名称"></el-input>
       </el-form-item>
       <el-form-item label="参数量：" prop="params">
-        <el-input v-model="form.params" oninput="value=value.replace(/[^\d]/g,'')" placeholder="只能输入正整数"></el-input>
+        <el-input v-model.number="form.params" oninput="value=value.replace(/[^\d]/g,'')" placeholder="只能输入正整数"></el-input>
       </el-form-item>
       <el-form-item label="模型描述：" prop="description">
         <el-input
