@@ -15,42 +15,47 @@ Mock.mock('/api/users/login', 'post', () => {
 })
 
 
-Mock.mock(RegExp('/api/result/fetchResult' + '*'), 'get', (options) => {
+Mock.mock(RegExp('/api/result/fetchResult' + '*'), 'post', (options) => {
     console.log(options);
     return resultResponse
 })
-Mock.mock('/api/model/fetchCategory', 'get', () => {
+Mock.mock('/api/model/fetchCategory', 'get', (options) => {
+    console.log(options);
     return categoryResponse
 })
 
-Mock.mock(RegExp('/api/model/fetchAll' + '*'), 'get', (options) => {
+Mock.mock(RegExp('/api/model/fetchAll' + '*'), 'post', (options) => {
     console.log(options);
     return modelsResponse
 })
-Mock.mock('/api/model/add', 'post', () => {
+Mock.mock('/api/model/add', 'post', (options) => {
+    console.log(options);
     return {
         status: 0,
         msg: "添加成功"
     }
 })
-Mock.mock('/api/model/update', 'post', () => {
+Mock.mock('/api/model/update', 'post', (options) => {
+    console.log(options);
     return {
         status: 0,
         msg: "更新成功"
     }
 })
 
-Mock.mock(RegExp('/api/experiment/fetchAll' + '*'), 'get', (options) => {
+Mock.mock(RegExp('/api/experiment/fetchAll' + '*'), 'post', (options) => {
     console.log(options);
     return experimentsResponse
 })
-Mock.mock('/api/experiment/add', 'post', () => {
+Mock.mock('/api/experiment/add', 'post', (options) => {
+    console.log(options);
     return {
         status: 0,
         msg: "添加成功"
     }
 })
-Mock.mock('/api/experiment/update', 'post', () => {
+Mock.mock('/api/experiment/update', 'post', (options) => {
+    console.log(options);
     return {
         status: 0,
         msg: "更新成功"

@@ -17,6 +17,8 @@
           v-model="form.test_time"
           type="datetime"
           placeholder="Select date and time"
+          format="YYYY-MM-DD HH:mm:ss"
+    value-format="YYYY-MM-DD HH:mm:ss"
         >
         </el-date-picker>
       </el-form-item>
@@ -55,6 +57,11 @@
        <el-form-item label="迭代：" prop="epoch">
         <el-input
           v-model.number="form.epoch"
+        ></el-input>
+      </el-form-item>
+      <el-form-item label="学习率：" prop="lr">
+        <el-input
+          v-model.number="form.lr"
         ></el-input>
       </el-form-item>
        <el-form-item label="批大小：" prop="batchsize">
@@ -102,7 +109,9 @@ export default defineComponent({
       
       // 用于判断新增还是编辑功能
       if (props.layer.row) {
-        form.value = JSON.parse(JSON.stringify(props.layer.row)); // 数量量少的直接使用这个转
+        let rowData= JSON.parse(JSON.stringify(props.layer.row)); // 数量量少的直接使用这个转
+        delete rowData['model_name'];
+        form.value = rowData
       }
     }
     return {

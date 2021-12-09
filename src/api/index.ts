@@ -27,12 +27,12 @@ export const fetchCategory = async (): Promise<IResponse> => {
 
 // 获取实验结果
 export const fetchResult = async (params: any): Promise<IResponse> => {
-    return await service.get('result/fetchResult', { params: params, loading: true });
+    return await service.post('result/fetchResult',params, { loading: true });
 };
 
 // 获取模型数据
 export const fetchModelsData = async (params: any): Promise<IResponse> => {
-    return await service.get('model/fetchAll', { params: params,loading: true });
+    return await service.post('model/fetchAll',params, { loading: true });
 };
 
 // 添加模型
@@ -47,7 +47,7 @@ export const updateModel = async (data): Promise<IResponse> => {
 
 // 获取实验数据
 export const fetchExperimentsData = async (params: any): Promise<IResponse> => {
-    return await service.get('experiment/fetchAll', { params: params,loading: true });
+    return await service.post('experiment/fetchAll',params, {loading: true });
 };
 
 // 添加实验
