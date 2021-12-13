@@ -6,7 +6,7 @@ let loading: ILoadingInstance
 
 // TODO 跨域
 const service = axios.create({
-    baseURL: "/api",
+    baseURL: "http://localhost:5000/api",
     timeout: 5000,
     withCredentials: false, // send cookies when cross-domain requests
 })

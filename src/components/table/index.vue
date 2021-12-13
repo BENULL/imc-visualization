@@ -67,7 +67,6 @@ export default defineComponent({
       () => pageInfo.size,
       (oldVal, newVal) => {
         console.log("size change");
-        pageInfo.size = newVal;
         context.emit("getTableData", true);
       }
     );
@@ -76,7 +75,6 @@ export default defineComponent({
       () => pageInfo.index,
       (oldVal, newVal) => {
         console.log("page change");
-        pageInfo.index = newVal;
         context.emit("getTableData");
       }
     );

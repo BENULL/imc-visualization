@@ -20,9 +20,9 @@ import * as directives from '@/directives'
 import '@/router/permission'
 import loadSvg from '@/components/svg-icon/icons'
 
-if (process.env.NODE_ENV === 'development') {
-    require('./mock/index.ts')
-}
+// if (process.env.NODE_ENV === 'development') {
+//     require('./mock/index.ts')
+// }
 
 const app = createApp(App)
 // 加载全局SVG

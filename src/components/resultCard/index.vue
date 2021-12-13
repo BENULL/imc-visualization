@@ -2,24 +2,24 @@
   <div class="card" :class="mode">
     <el-card
       shadow="hover"
-      :class="{ positive: data.item.type > 0, negative: data.item.type < 0 }"
+      :class="{ positive: data.item.score > data.threshold, negative: data.item.score < data.threshold }"
       :body-style="{ padding: '0px' }"
     >
       <div class="card-header">
         <span class="img-name">{{
-          data.item.image_name.replace(/\.[^/.]+$/, "")
+          data.item.image_src.replace(/\.[^/.]+$/, "")
         }}</span>
         <div class="score">{{ data.item.score }}</div>
       </div>
       <div class="card-content">
         <div class="img-content">
           <img
-            :src="`/static/${data.model}/${data.record}/images/${data.item.image_name}`"
+            :src="`http://10.176.54.40:21602/${data.model}/${data.record}/${data.item.image_src}`"
           />
         </div>
         <div class="img-content">
           <img
-            :src="`/static/${data.model}/${data.record}/masks/${data.item.image_name}`"
+            :src="`http://10.176.54.40:21602/${data.model}/${data.record}/${data.item.image_src}`"
           />
         </div>
       </div>

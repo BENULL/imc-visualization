@@ -39,8 +39,9 @@
         :key="index"
         :data="{
           item: item,
-          model: resultData.model,
-          record: resultData.record,
+          model: resultData.model_name,
+          record: resultData.experiment_name,
+          threshold: threshold
         }"
       />
     </div>
@@ -112,8 +113,8 @@ export default defineComponent({
 
     const fetchResultData = () => {
       fetchResult({
-        model: state.cascaderValue[0],
-        record: state.cascaderValue[1],
+        model_id: state.cascaderValue[0],
+        experiment_id: state.cascaderValue[1],
         search: state.searchInput,
         pos: state.positive,
         neg: state.negative,

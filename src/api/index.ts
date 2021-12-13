@@ -22,7 +22,7 @@ export const userInfoRequest = async (): Promise<IResponse> => {
 
 // 获取模型和实验下拉框数据
 export const fetchCategory = async (): Promise<IResponse> => {
-    return await service.get('model/fetchCategory', { loading: true });
+    return await service.get('experiment/getCategory', { loading: true });
 };
 
 // 获取实验结果

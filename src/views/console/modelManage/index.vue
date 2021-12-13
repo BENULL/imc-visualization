@@ -73,9 +73,10 @@ export default defineComponent({
       fetchModelsData(params)
         .then((res) => {
             console.log(res.data)
-            tableData.value = res.data;
-            // TODO
-            page.total = 1;
+            tableData.value = res.data.items;
+            page.total = res.data.pager.total;
+            page.index = res.data.pager.index;
+            page.size = res.data.pager.size;
         })
         .catch((error) => {
           tableData.value = [];
