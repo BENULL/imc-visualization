@@ -4,7 +4,6 @@ import { ILoadingInstance } from 'element-plus/lib/components/loading/src/loadin
 
 let loading: ILoadingInstance
 
-// TODO 跨域
 const service = axios.create({
     baseURL: "http://localhost:5000/api",
     timeout: 5000,

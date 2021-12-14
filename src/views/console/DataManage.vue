@@ -9,10 +9,12 @@
 
 <script setup lang="ts">
 import { UploadFilled } from "@element-plus/icons";
+import { uploadResult } from "@/api";
+
 const upload = (option) => {
-  alert("upload");
-  const file = option.file;
-  console.log(option)
+  let params = new FormData()
+  params.append('file', option.file)
+  return uploadResult(params)
 };
 </script>
 <style lang="scss" scoped>
@@ -22,5 +24,16 @@ const upload = (option) => {
     width: 1000px;
     height: 200px;
   }
+  ::v-deep .el-upload-list__item-status-label{
+    right:20px
+  }
+  ::v-deep .el-upload-list__item {
+    font-size: 24px;
+  }
+  ::v-deep .el-icon {
+    --font-size: 24px;
+  }
+
+
 }
 </style>

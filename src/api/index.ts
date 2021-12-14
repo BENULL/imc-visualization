@@ -27,38 +27,41 @@ export const fetchCategory = async (): Promise<IResponse> => {
 
 // 获取实验结果
 export const fetchResult = async (params: any): Promise<IResponse> => {
-    return await service.post('result/fetchResult',params, { loading: true });
+    return await service.post('result/fetchResult', params, { loading: true });
 };
 
 // 获取模型数据
 export const fetchModelsData = async (params: any): Promise<IResponse> => {
-    return await service.post('model/fetchAll',params, { loading: true });
+    return await service.post('model/fetchAll', params, { loading: true });
 };
 
 // 添加模型
 export const addModel = async (data): Promise<IResponse> => {
-    return await service.post('model/add', data, {loading: true });
+    return await service.post('model/add', data, { loading: true });
 };
 
 // 更新模型
 export const updateModel = async (data): Promise<IResponse> => {
-    return await service.post('model/update', data, {loading: true });
+    return await service.post('model/update', data, { loading: true });
 };
 
 // 获取实验数据
 export const fetchExperimentsData = async (params: any): Promise<IResponse> => {
-    return await service.post('experiment/fetchAll',params, {loading: true });
+    return await service.post('experiment/fetchAll', params, { loading: true });
 };
 
 // 添加实验
 export const addExperiment = async (data): Promise<IResponse> => {
-    return await service.post('experiment/add', data, {loading: true });
+    return await service.post('experiment/add', data, { loading: true });
 };
 
 // 更新实验
 export const updateExperiment = async (data): Promise<IResponse> => {
-    return await service.post('experiment/update', data, {loading: true });
+    return await service.post('experiment/update', data, { loading: true });
 };
 
-
+// 上传实验数据
+export const uploadResult = async (data): Promise<IResponse> => {
+    return await service.post('result/upload', data, { headers: { 'Content-Type': 'multipart/form-data' }, loading: true });
+};
 
